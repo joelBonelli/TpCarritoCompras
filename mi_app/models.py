@@ -1,6 +1,6 @@
 from django.db import models
 from django.forms import ValidationError
-from django.contrib.auth.models import BaseUserManager, AbstractUser
+from django.contrib.auth.models import BaseUserManager, AbstractBaseUser
 from django.conf import settings
 from django.contrib.contenttypes.fields import GenericForeignKey
 from django.contrib.contenttypes.models import ContentType
@@ -39,11 +39,6 @@ class Carrito(models.Model):
         return f"Carrito de {self.usuario.username}"
 
     def agregar_producto(self, producto, cantidad=1):
-        try:
-            producto.ajustar_stock(-cantidad)
-        except ValidationError:
-            raise ValidationError("No hay suficiente stock para agregar este producto al carrito")
-
         content_type = ContentType.objects.get_for_model(producto)
         item_carrito, created = CarritoProductos.objects.get_or_create(
             carrito=self, 
@@ -103,7 +98,7 @@ class UsuarioManager(BaseUserManager):
         user.save(using=self._db)
         return user
 
-class Usuario(AbstractUser):
+class Usuario(AbstractBaseUser):
     email = models.EmailField(unique=True)
     nombre = models.CharField(max_length=255)
     apellido = models.CharField(max_length=255)

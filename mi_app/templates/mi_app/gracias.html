@@ -3,7 +3,8 @@
 {% block title %}Gracias por su compra{% endblock %}
 
 {% block content %}
-<h2>Gracias por su compra, {{ usuario.username }}!</h2>
+<h2>Gracias por su compra, {{ usuario.nombre }} {{ usuario.apellido }}!</h2>
+<p>Enviaremos su factura a la siguiente dirección: {{ usuario.email }}</p>
 <p>Esperamos que disfrute de su compra.</p>
 <form method="post" action="{% url 'vaciar_carrito' %}">
     {% csrf_token %}

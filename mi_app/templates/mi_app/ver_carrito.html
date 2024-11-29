@@ -34,8 +34,13 @@
     {% endfor %}
 </ul>
 <div style="display: flex; justify-content: space-between; align-items: center;">
+    <a href="{% url 'lista_productos' %}" class="login-link"> Más Productos</a>
     <p>Total del Carrito: ${{ productos_en_carrito|sum_cart_total }}</p>
-    <a href="{% url 'gracias' %}"  class="register-link-green">REALIZAR COMPRA</a>
+    {% if messages %}
+        <a href="{% url 'gracias' %}" class="register-link-green" style="pointer-events: none; opacity: 0.5;">REALIZAR COMPRA</a>
+    {% else %}
+        <a href="{% url 'gracias' %}" class="register-link-green">REALIZAR COMPRA</a>
+    {% endif %}
 </div>
 {% else %}
 <p>Tu carrito está vacío.</p>

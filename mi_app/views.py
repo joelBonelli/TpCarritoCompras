@@ -1,3 +1,4 @@
+from sqlite3 import IntegrityError
 from django.contrib import messages
 from django.forms import ValidationError
 from django.shortcuts import render, get_object_or_404, redirect
@@ -35,15 +36,23 @@ def login_view(request):
         form = LoginForm()
     return render(request, 'mi_app/login.html', {'form': form})
 
+
 def registro_view(request):
     if request.method == 'POST':
         form = RegistroForm(request.POST)
         if form.is_valid():
-            form.save()
-            return redirect('login')  
+            try:
+                form.save()
+                return redirect('login')  
+            except IntegrityError:
+                form.add_error('dni', 'El DNI ya está registrado. Por favor, verifica tus datos.')
     else:
         form = RegistroForm()
     return render(request, 'mi_app/registro.html', {'form': form})
+
+
+
+
 
 @login_required
 def agregar_al_carrito(request, producto_id):
@@ -91,17 +100,22 @@ def actualizar_cantidad(request, item_id):
 
 @login_required
 def gracias(request):
-    carrito = Carrito.objects.filter(usuario=request.user)
-    for item in carrito:
-        producto = item.producto
-        producto.stock -= item.cantidad
-        producto.save()
-    carrito.delete()
     return render(request, 'mi_app/gracias.html', {'usuario': request.user})
 
 
 @login_required
 def vaciar_carrito(request):
-    carrito = Carrito.objects.filter(usuario=request.user)
-    carrito.delete()
+    carrito = Carrito.objects.filter(usuario=request.user).first()
+    if carrito:
+        productos_en_carrito = CarritoProductos.objects.filter(carrito=carrito)
+        
+        for item in productos_en_carrito:
+            producto = item.producto
+            if producto.stock < item.cantidad:
+                return redirect('ver_carrito')  # Manejar el caso de stock insuficiente
+            producto.stock -= item.cantidad
+            producto.save()
+        
+        carrito.delete()
+    
     return redirect('ver_carrito')
