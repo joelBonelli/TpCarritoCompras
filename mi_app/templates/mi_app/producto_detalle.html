@@ -1,0 +1,14 @@
+{% extends 'mi_app/base.html' %}
+
+{% block title %}Producto: {{ producto.nombre }}{% endblock %}
+
+{% block content %}
+<h2>{{ producto.nombre }}</h2>
+<p>{{ producto.descripcion }}</p>
+<p>Precio: ${{ producto.precio }}</p>
+<p>Stock: {{ producto.stock }}</p>
+<p>Garantía: {{ producto.garantia }} meses </p>
+<a href="{% url 'agregar_al_carrito' producto.id %}" class="login-link" >Agregar al Carrito</a>
+<hr>
+<a href="{% url 'lista_productos' %}"  class="register-link" >Volver a la lista de productos</a>
+{% endblock %}

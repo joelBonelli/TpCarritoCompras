@@ -1,0 +1,112 @@
+[
+    {
+        "model": "mi_app.productoelectronico",
+        "pk": 1,
+        "fields": {
+            "nombre": "Laptop",
+            "descripcion": "Laptop de alta gama",
+            "precio": "1500.00",
+            "stock": 10,
+            "garantia": 24
+        }
+    },
+    {
+        "model": "mi_app.productoelectronico",
+        "pk": 2,
+        "fields": {
+            "nombre": "Smartphone",
+            "descripcion": "Smartphone con cámara de 48MP",
+            "precio": "800.00",
+            "stock": 20,
+            "garantia": 12
+        }
+    },
+    {
+        "model": "mi_app.productoelectronico",
+        "pk": 3,
+        "fields": {
+            "nombre": "Tablet",
+            "descripcion": "Tablet con pantalla de 10 pulgadas",
+            "precio": "300.00",
+            "stock": 15,
+            "garantia": 18
+        }
+    },
+    {
+        "model": "mi_app.productoelectronico",
+        "pk": 4,
+        "fields": {
+            "nombre": "Smartwatch",
+            "descripcion": "Smartwatch con monitor de ritmo cardíaco",
+            "precio": "200.00",
+            "stock": 25,
+            "garantia": 12
+        }
+    },
+    {
+        "model": "mi_app.productoelectronico",
+        "pk": 5,
+        "fields": {
+            "nombre": "Auriculares",
+            "descripcion": "Auriculares inalámbricos con cancelación de ruido",
+            "precio": "150.00",
+            "stock": 30,
+            "garantia": 12
+        }
+    },
+    {
+        "model": "mi_app.productoelectronico",
+        "pk": 6,
+        "fields": {
+            "nombre": "Cámara",
+            "descripcion": "Cámara digital de 20MP",
+            "precio": "500.00",
+            "stock": 10,
+            "garantia": 24
+        }
+    },
+    {
+        "model": "mi_app.productoelectronico",
+        "pk": 7,
+        "fields": {
+            "nombre": "Televisor",
+            "descripcion": "Televisor 4K de 55 pulgadas",
+            "precio": "1000.00",
+            "stock": 5,
+            "garantia": 36
+        }
+    },
+    {
+        "model": "mi_app.productoelectronico",
+        "pk": 8,
+        "fields": {
+            "nombre": "Consola de videojuegos",
+            "descripcion": "Consola de videojuegos de última generación",
+            "precio": "500.00",
+            "stock": 8,
+            "garantia": 24
+        }
+    },
+    {
+        "model": "mi_app.productoelectronico",
+        "pk": 9,
+        "fields": {
+            "nombre": "Router",
+            "descripcion": "Router WiFi de alta velocidad",
+            "precio": "100.00",
+            "stock": 20,
+            "garantia": 12
+        }
+    },
+    {
+        "model": "mi_app.productoelectronico",
+        "pk": 10,
+        "fields": {
+            "nombre": "Impresora",
+            "descripcion": "Impresora multifunción",
+            "precio": "200.00",
+            "stock": 10,
+            "garantia": 12
+        }
+    }
+]

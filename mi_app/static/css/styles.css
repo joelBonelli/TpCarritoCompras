@@ -1,0 +1,157 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: aquamarine;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 1em;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    margin: 0;
+    color: coral;
+}
+
+nav {
+    color: #fff;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 1em;
+}
+
+nav ul li {
+    margin-right: 1em;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+main {
+    padding: 1em;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1em;
+    width: 100%;
+    bottom: 0;
+}
+
+/* Estilos para enlaces no visitados y visitados */
+a, a:visited {
+    color: inherit; /* Mantiene el color original */
+    text-decoration: none; /* Elimina el subrayado si es necesario */
+}
+
+/* Opcional: estilos adicionales para enlaces en estado hover y active */
+a:hover, a:active {
+    color: #000; /* Cambia el color en hover y active si es necesario */
+    text-decoration: underline; /* Añade subrayado en hover */
+}
+
+/* Contenedor de elementos de navegación */
+.nav-container {
+    display: flex;
+    align-items: center; /* Alinea verticalmente */
+    gap: 1em; /* Espaciado entre elementos */
+}
+
+/* Estilo para el nombre del usuario */
+.username {
+    margin-right: 1em;
+    font-weight: bold;
+}
+
+/* Estilo para el formulario de cierre de sesión */
+.logout-form {
+    margin: 0;
+}
+
+.logout-form button {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 0.5em 1em;
+    cursor: pointer;
+}
+
+.logout-form button:hover {
+    background-color: #d32f2f;
+}
+
+/* Estilo para el enlace de Iniciar Sesión */
+.login-link {
+    display: inline-block; /* Asegura que se comporte como un botón */
+    padding: 0.5em 1em;
+    color: white;
+    background-color: #007BFF; /* Azul */
+    border: 2px solid #007BFF;
+    border-radius: 4px; /* Esquinas redondeadas */
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+
+
+/* Efecto hover para el enlace */
+.login-link:hover {
+    background-color: white;
+    color: #007BFF; /* Azul para el texto */
+}
+
+/* Estilo para el enlace de Registro */
+.register-link {
+    display: inline-block; /* Asegura que se comporte como un botón */
+    padding: 0.5em 1em;
+    color: white;
+    background-color: #f44336; /* Rojo */
+    border: 2px solid #f44336;
+    border-radius: 4px; /* Esquinas redondeadas */
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Efecto hover para el enlace */
+.register-link:hover {
+    background-color: white;
+    color: #f44336; /* Rojo para el texto */
+}
+
+.register-link-green {
+    display: inline-block; /* Asegura que se comporte como un botón */
+    padding: 0.5em 1em;
+    color: white;
+    background-color: #4CAF50; /* Verde */
+    border: 2px solid #4CAF50;
+    border-radius: 4px; /* Esquinas redondeadas */
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Efecto hover para el enlace */
+.register-link-green:hover {
+    background-color: white;
+    color: #4CAF50; /* Verde para el texto */
+}

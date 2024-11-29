@@ -1,0 +1,14 @@
+{% extends 'mi_app/base.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "Registro de Usuario" %}{% endblock %}
+
+{% block content %}
+<h2>{% trans "Registro de Usuario" %}</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">{% trans "Registrar" %}</button>
+</form>
+
+{% endblock %}

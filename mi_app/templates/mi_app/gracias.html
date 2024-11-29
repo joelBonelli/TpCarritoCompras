@@ -1,0 +1,12 @@
+{% extends 'mi_app/base.html' %}
+
+{% block title %}Gracias por su compra{% endblock %}
+
+{% block content %}
+<h2>Gracias por su compra, {{ usuario.username }}!</h2>
+<p>Esperamos que disfrute de su compra.</p>
+<form method="post" action="{% url 'vaciar_carrito' %}">
+    {% csrf_token %}
+    <button type="submit">Volver</button>
+</form>
+{% endblock %}

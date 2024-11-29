@@ -1,0 +1,43 @@
+{% extends 'mi_app/base.html' %}
+{% load custom_filters %}
+
+{% block title %}Mi Carrito{% endblock %}
+
+{% block content %}
+<h2>Mi Carrito</h2>
+
+{% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+{% endif %}
+
+{% if productos_en_carrito %}
+<ul>
+    {% for item in productos_en_carrito %}
+    <li>
+        <h3>{{ item.producto.nombre }}</h3>
+        <p>Cantidad: {{ item.cantidad }}</p>
+        <p>Precio: ${{ item.producto.precio }}</p>
+        <p>Total: ${{ item.producto.precio|multiply:item.cantidad }}</p>
+        <form method="post" action="{% url 'actualizar_cantidad' item.id %}">
+            {% csrf_token %}
+            <label for="cantidad">Cantidad:</label>
+            <input type="number" name="cantidad" id="cantidad" value="{{ item.cantidad }}" min="1">
+            <button type="submit">Actualizar</button>
+        </form>
+        <br>
+        <a href="{% url 'eliminar_del_carrito' item.producto.id %}" class="register-link">Eliminar</a>
+    </li>
+    {% endfor %}
+</ul>
+<div style="display: flex; justify-content: space-between; align-items: center;">
+    <p>Total del Carrito: ${{ productos_en_carrito|sum_cart_total }}</p>
+    <a href="{% url 'gracias' %}"  class="register-link-green">REALIZAR COMPRA</a>
+</div>
+{% else %}
+<p>Tu carrito está vacío.</p>
+{% endif %}
+{% endblock %}

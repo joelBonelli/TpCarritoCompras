@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Mi Tienda Online{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <h1>IT - Tienda Online</h1>
+            <nav>
+                <div class="nav-container">
+                    {% if user.is_authenticated %}
+                        <span class="username">Bienvenido, {{ user.nombre }} {{ user.apellido }}</span>
+                        <form method="post" action="{% url 'logout' %}" class="logout-form">
+                            {% csrf_token %}
+                            <button type="submit">Cerrar Sesión</button>
+                        </form>
+                    {% else %}
+                        <a href="{% url 'login' %}" class="login-link">Iniciar Sesión</a>
+                    {% endif %}
+                </div>
+            </nav>
+        </div>
+        <ul>
+            <li><a href="{% url 'lista_productos' %}" class="">Productos</a></li>
+            <br>
+            <li><a href="{% url 'ver_carrito' %}">Ver Carrito</a>
+        </ul>
+    </header>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+    <footer>
+        <p>&copy; 2024 Tienda Online</p>
+    </footer>
+</body>
+</html>
