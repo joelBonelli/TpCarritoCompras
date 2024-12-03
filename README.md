@@ -75,7 +75,7 @@ classDiagram
     %% Relaciones
     ProductoBase <|-- ProductoElectronico
     ProductoBase <|-- ProductoRopa
-    Carrito "1" --> "1" CarritoProducto : contiene
+    Carrito "1" --> "0...*" CarritoProducto : contiene
     CarritoProducto "1" --> "1" ProductoBase : relaciona
     CarritoProducto "1" --> "1" Carrito : pertenece
     Carrito "1" --> "1" Usuario : gestionado_por
