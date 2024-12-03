@@ -1,4 +1,26 @@
-Cuando clonen el repositorio tiene que ejecutar: " pip install -r requirements.txt " con ese se instalan todas las dependencias.
+# Proyecto Mi Carrito
+
+Este proyecto es una tienda en línea desarrollada con Django.
+
+## Instalación
+
+Cuando clonen el repositorio, ejecuten el siguiente comando para instalar todas las dependencias:
+```sh
+pip install -r requirements.txt
+```
+corremos los siguentes comandos para cargar la base de datos:
+```sh
+python manage.py  makemigrations
+```
+```sh
+python manage.py  migrate
+```
+por ultimo prendemos el servidor:
+```sh
+python manage.py  runserver
+```
+
+## Diagramas
 
 ### Diagrama de Clases
 
@@ -137,7 +159,7 @@ erDiagram
 
 ```
 
-### Diccionario de Datos
+## Diccionario de Datos
 
 - **Usuario**
   - email: String - Correo electrónico del usuario.
