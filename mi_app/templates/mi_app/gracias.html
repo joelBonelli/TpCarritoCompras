@@ -8,6 +8,6 @@
 <p>Esperamos que disfrute de su compra.</p>
 <form method="post" action="{% url 'vaciar_carrito' %}">
     {% csrf_token %}
-    <button type="submit">Volver</button>
+    <button type="submit" class="login-link">Volver</button>
 </form>
 {% endblock %}
