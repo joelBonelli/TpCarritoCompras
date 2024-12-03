@@ -1,5 +1,7 @@
 # Proyecto Mi Carrito
 
+Alumnos: Joel Bonelli, Axel Cichello, Juan Cruz García, Ayelen Patiño
+
 Este proyecto es una tienda en línea desarrollada con Django.
 
 ## Instalación
