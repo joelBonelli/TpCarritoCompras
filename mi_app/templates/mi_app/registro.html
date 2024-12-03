@@ -7,8 +7,20 @@
 <h2>{% trans "Registro de Usuario" %}</h2>
 <form method="post">
     {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit" class="login-link">{% trans "Registrar" %}</button>
+    <table>
+        {% for field in form %}
+        <tr>
+            <td>{{ field.label_tag }}</td>
+            <td>
+                {{ field }}
+            </td>
+            <td>{{ field.errors }}
+        </tr>
+        {% endfor %}
+        <tr>
+            <td><button type="submit" class="login-link">{% trans "Registrar" %}</button></td>
+            <td><a href="{% url 'login' %}" class="login-link">Iniciar Sesión</a></td>
+        </tr>
+    </table>
 </form>
-
 {% endblock %}

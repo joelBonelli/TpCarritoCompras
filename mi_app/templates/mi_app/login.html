@@ -1,9 +1,10 @@
 {% extends 'mi_app/base.html' %}
+{% load i18n %}
 
-{% block title %}Iniciar Sesión{% endblock %}
+{% block title %}{% trans "Iniciar Sesión" %}{% endblock %}
 
 {% block content %}
-<h2>Iniciar Sesión</h2>
+<h2>{% trans "Iniciar Sesión" %}</h2>
 {% if messages %}
     <ul class="messages">
         {% for message in messages %}
@@ -14,10 +15,22 @@
 
 <form method="post">
     {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit" class="login-link">Iniciar Sesión</button>
+    <table>
+        {% for field in form %}
+        <tr>
+            <td>{{ field.label_tag }}</td>
+            <td>
+                {{ field }}
+                {% if field.errors %}
+                    <div class="error">{{ field.errors }}</div>
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+        <tr>
+            <td><button type="submit" class="login-link">{% trans "Iniciar Sesión" %}</button></td>
+            <td><a href="{% url 'registro' %}" class="login-link">{% trans "Registrarse" %}</a></td>
+        </tr>
+    </table>
 </form>
-<br>
-<p>Si no tiene usuario, por favor registrese</p>
-<a href="{% url 'registro' %}" class="login-link">Registrarse</a>
 {% endblock %}
